@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JG - Redirects</title>
+    <link rel="stylesheet" href="./static/styles.css" />
+    <link rel="icon" type="image/x-icon" href="./static/img/favicon.ico" />
+  </head>
+  <body>
+    <div class="form container">
+      <h1>Redirects</h1>
+      {% if redirections %} {% for redirection in redirections %}
+      <div class="redirection">
+        <button
+          class="btn block-cube block-cube-hover redirection-button"
+          onclick="window.location.href='{{ redirection.target_url }}'"
+        >
+          <div class="bg-top">
+            <div class="bg-inner"></div>
+          </div>
+          <div class="bg-right">
+            <div class="bg-inner"></div>
+          </div>
+          <div class="bg">
+            <div class="bg-inner"></div>
+          </div>
+          <div class="text">{{ redirection.source_path }}</div>
+        </button>
+      </div>
+      {% endfor %}
+      <div class="logout">
+        <form action="/logout" method="get">
+          <button
+            class="btn block-cube block-cube-hover logout-button"
+            type="submit"
+          >
+            <div class="bg-top">
+              <div class="bg-inner"></div>
+            </div>
+            <div class="bg-right">
+              <div class="bg-inner"></div>
+            </div>
+            <div class="bg">
+              <div class="bg-inner"></div>
+            </div>
+            <div class="text">Cerrar sesión</div>
+          </button>
+        </form>
+      </div>
+      {% else %}
+      <p>No hay redirecciones disponibles.</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JG - Login</title>
+    <link rel="stylesheet" href="./static/styles.css" />
+    <link rel="icon" type="image/x-icon" href="./static/img/favicon.ico" />
+  </head>
+  <body>
+    <form class="form" action="{{ url_for('login') }}" method="post">
+      <div class="control">
+        <h1>JG - FCEIA - Redirects</h1>
+        <h2>Login</h2>
+      </div>
+      <div class="control block-cube block-input">
+        <input
+          name="username"
+          id="username"
+          type="text"
+          placeholder="Username"
+          required
+        />
+        <div class="bg-top">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg">
+          <div class="bg-inner"></div>
+        </div>
+      </div>
+      <div class="control block-cube block-input">
+        <input
+          name="password"
+          id="password"
+          type="password"
+          placeholder="Password"
+          required
+        />
+        <div class="bg-top">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg">
+          <div class="bg-inner"></div>
+        </div>
+      </div>
+      <button class="btn block-cube block-cube-hover" type="submit">
+        <div class="bg-top">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="text">Log in</div>
+      </button>
+    </form>
+    <div class="credits ml-auto">
+      <span class="copyright">
+        © 2024, made with 🧉 by
+        <a href="https://juangonzalez.com.ar">Juan Gonzalez</a>
+      </span>
+    </div>
+  </body>
+</html>
