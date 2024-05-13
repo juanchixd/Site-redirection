@@ -3,10 +3,12 @@ import requests
 import csv
 from flask import Flask, render_template, redirect, abort, request, flash, url_for
 from flask_login import LoginManager, login_user, logout_user, login_required, UserMixin
+from flask_bcrypt import Bcrypt
 from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY')
+bcrypt = Bcrypt()
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -23,12 +25,13 @@ def login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-        if username == os.environ.get('USER') and password == os.environ.get('PASSWORD'):
+        hashed_password = bcrypt.generate_password_hash(os.environ.get('PASSWORD')).decode('utf-8')
+        if username == os.environ.get('USER') and bcrypt.check_password_hash(hashed_password, password):
             user = User()
             login_user(user)
             return redirect('/')
         else:
-            flash('Usuario o contraseña incorrectos.')
+            flash('Usuario o contraseña incorrectos.', 'error')
     return render_template('login.html', now=datetime.now())
 
 @app.route('/logout')

@@ -61,7 +61,24 @@
         </div>
         <div class="text">Log in</div>
       </button>
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %} {% if category ==
+      'error' %}
+      <div class="btn block-cube block-cube-hover">
+        <div class="bg-top">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg-right">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="bg">
+          <div class="bg-inner"></div>
+        </div>
+        <div class="text">{{ message }}</div>
+      </div>
+      {% endif %} {% endfor %} {% endif %} {% endwith %}
     </form>
+
     <div class="credits ml-auto">
       <span class="copyright">
         © 2024, made with 🧉 by
